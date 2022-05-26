@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { MemoryRouter as Router, Switch, Route } from 'react-router-dom';
-import styled from 'styled-components';
 
 // Fontawesome
 import './plugins/fontawesome';
@@ -9,7 +8,7 @@ import './plugins/fontawesome';
 import { Home } from './routes/Home';
 import { Settings } from './routes/Settings';
 
-// navigation
+// Navigation
 import { Nav } from './components/Nav';
 
 // Helpers
@@ -26,15 +25,8 @@ const plongAudio = new Audio(plong);
 // Worker
 import timeWorker from './timer.worker';
 
-const Wrapper = styled.div`
-  display: grid;
-  place-items: center;
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  padding: 4rem;
-  box-sizing: border-box;
-`;
+// Components
+import { Wrapper } from './components/styled/WrapperApp';
 
 export function App() {
   /**
