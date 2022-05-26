@@ -8,18 +8,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [[
-              '@babel/preset-env', {
-                targets: {
-                  esmodules: true
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  targets: {
+                    esmodules: true
+                  }
                 }
-              }],
-              '@babel/preset-react']
+              ],
+              '@babel/preset-react'
+            ]
           }
         }
       },
@@ -31,16 +35,34 @@ module.exports = {
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.worker\.js$/,
+        use: { loader: 'worker-loader' }
+      },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader',
+        options: {
+          name: 'sounds/[name].[hash:8].[ext]'
+        }
+      },
+      {
+        test: /\.(woff|woff2|ttf)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 1000
+        }
       }
     ]
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx']
   },
   output: {
     filename: 'app.js',
-    path: path.resolve(__dirname, 'build', 'js'),
-  },
+    path: path.resolve(__dirname, 'build', 'js')
+  }
 };
