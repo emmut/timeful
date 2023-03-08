@@ -4,6 +4,12 @@ import styled from 'styled-components';
 const StyledInput = styled.input`
   display: block;
 `;
+const StyledLabel = styled.label`
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+`;
 
 export function FormInput({ name, type, label, value, setFormSettings }) {
   // handel form input
@@ -23,7 +29,7 @@ export function FormInput({ name, type, label, value, setFormSettings }) {
     return target.value;
   };
   return (
-    <label htmlFor={name}>
+    <StyledLabel htmlFor={name}>
       {label}
       {type === 'checkbox' ? (
         <StyledInput
@@ -42,6 +48,6 @@ export function FormInput({ name, type, label, value, setFormSettings }) {
           defaultValue={value}
         />
       )}
-    </label>
+    </StyledLabel>
   );
 }

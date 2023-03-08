@@ -10,6 +10,7 @@ const StyledInput = styled.input`
   width: clamp(2);
   min-width: 3rem;
   height: 2.5rem;
+  padding: 0 0.5rem;
 `;
 
 export const FormNumberInput = ({ name, label, value, setFormSettings }) => {
