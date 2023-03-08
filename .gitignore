@@ -6,3 +6,5 @@ node_modules
 
 # webpack bundle
 build
+
+out/
